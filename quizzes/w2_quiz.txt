@@ -1,0 +1,11 @@
+01 = 27
+02 = 'x' is a vector of length 10 and 'if' can only test a single logical statement.
+03 = 16
+04 = 103
+05 = f
+06 = a collection of symbol/value pairs
+07 = lexical scoping
+08 = The values of free variables are searched for in the environment in which the function was called
+09 = All objects must be stored in memory
+10 = It is the environment in which a function was defined
+

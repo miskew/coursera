@@ -1,0 +1,37 @@
+01 = University of Auckland
+02 = 
+    The freedom to restrict access to the source code for the software.
+    The freedom to sell the software for any price.
+    The freedom to prevent users from using the software for undesirable purposes.
+03 = matrix, data.frame, list, array, table
+04 = integer
+05 = character
+06 = 2x3 matrix
+[
+    2, 3, 5
+    3, 2, 10
+]
+07 = elements of a vector all must be of the same class
+08 = 
+    a character vector containing the letter "a".
+    a character vector of length 1.
+09 = a numeric vector with elements 3, 4, 5, 6
+10 = x[x < 6] <- 0
+
+11 -- 20
+11 = "Ozone","Solar.R","Wind","Temp","Month","Day"
+12 = 
+        Ozone Solar.R Wind Temp Month Day
+        1    41     190  7.4   67     5   1
+        2    36     118  8.0   72     5   2
+13 = 153
+14 =   
+        Ozone Solar.R Wind Temp Month Day
+        152    18     131  8.0   76     9  29
+        153    20     223 11.5   68     9  30
+15 = 21
+16 = 37
+17 = 42.1
+18 = 212.8
+19 = 79.10
+20 = 115
