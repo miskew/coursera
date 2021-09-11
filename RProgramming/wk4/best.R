@@ -21,23 +21,19 @@ best <- function(state, outcome) {
     ## Return hospital name in that state with lowest 30-day death rate
     rowsForState = f[f$State == state,]
 
+    # Remove NAs and any values that can't be coerced to numeric so we can coerce later.
     colToSearch <- rowsForState[,colInd]
-    # Remove NAs and any values that can't be coerced to numeric
-    filtered <- colToSearch[which(!is.na(colToSearch) & colToSearch != "Not Available" & canCoerce(colToSearch, "numeric"))]
-    print(filtered)
-    minVal <- min(as.numeric(filtered), na.rm = TRUE)
-    print(minVal)
-    indOfMins <- which(canCoerce(colToSearch, "numeric") & as.numeric(colToSearch) == minVal)
-    print(indOfMins)
+    filtered <- rowsForState[which(!is.na(colToSearch) & colToSearch != "Not Available" & canCoerce(colToSearch, "numeric")),]    
+    
+    indOfMins <- which(as.numeric(filtered[,colInd]) ==  min(as.numeric(filtered[,colInd]), na.rm = TRUE))
     if (length(indOfMins) == 0) {
         return(NULL)
     }
 
-    # If more than one minimum is found, tie break by ordering by hospital name and returning first item.
+    # If more than one minimum is found, tie break by selecting first item after ordering by hospital name.
     if (length(indOfMins) > 1) {
-        hospNames <- rowsForState[indOfMins, "Hospital.Name"]
-        print(hospNames)
+        hospNames <- filtered[indOfMins, "Hospital.Name"]
         return(hospNames[order(hospNames)[1]])
     }
-    return(rowsForState[indOfMins, "Hospital.Name"])
+    return(filtered[indOfMins, "Hospital.Name"])
 }
