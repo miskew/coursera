@@ -1,3 +1,4 @@
+# Return hospital name with the lowest mortality rate for a given outcome in a given state.
 best <- function(state, outcome) {
     ## Read outcome data
     f <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
