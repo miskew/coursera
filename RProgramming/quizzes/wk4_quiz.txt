@@ -1,0 +1,11 @@
+[1] 1 1 2 4 1
+rnorm
+It can be used to specify which random number generating algorithm R should use, ensuring consistency and reproducibility.
+qpois
+Generate data from a Normal linear model
+rbinom
+function call stack
+100%?
+It is the time spent by the CPU evaluating an expression
+elapsed time may be smaller than user time
+
