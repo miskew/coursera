@@ -2,6 +2,11 @@ source("helper.R")
 source("best.R")
 
 rankhospital <- function(state, outcome, num = "best") {
+    ## Validate that num is one of accepted values or numeric.
+    if (!(is.numeric(num)) && !(num == "best" || num == "worst")) {
+       stop("invalid rank")
+    }
+
     ## Read outcome data
     f <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
 
@@ -10,12 +15,6 @@ rankhospital <- function(state, outcome, num = "best") {
     validate(statesInFile, state, outcome)
     colNames <- names(f)
     indOfOutcomeCol <- getIndOfOutcomeCol(colNames, outcome)
-
-    ## check if num is best. if so, use function we already have to answer question.
-    ## otherwise proceed
-    if (!(is.numeric(num)) && !(num == "best" || num == "worst")) {
-       stop("invalid rank")
-    }
 
     getRankedHospital(f, indOfOutcomeCol, state, outcome, num)
 }
