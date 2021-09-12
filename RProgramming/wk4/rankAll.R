@@ -12,12 +12,15 @@ rankall <- function(outcome, num = "best") {
     colNames <- names(f)
     indOfOutcomeCol <- getIndOfOutcomeCol(colNames, outcome)
     statesInFile <- unique(f$State)
+
+    ## Alphabetize the states for neat reporting.
     statesInFile <- statesInFile[order(statesInFile)]
+
     ## For each state, find the hospital of the given rank
     result <- lapply(statesInFile, rankhospital, outcome, num)
     hospitalNames <- sapply(result, '[[', 1)
 
     ## Return a data frame with the hospital names and the
     ## (abbreviated) state name
-    data.frame(statesInFile, hospitalNames)
+    data.frame("state" = statesInFile, "hospital" = hospitalNames)
 }
